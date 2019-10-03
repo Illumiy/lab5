@@ -19,6 +19,9 @@ class DemoController extends Controller
     {
       //  $filepath='xml\guest.xml';
         DemoXml::generateXml();
+        Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
+        Yii::$app->response->headers->add('Content-Type','text/xml');
+        return $this->renderPartial('demos');
 //        if (file_exists($filepath)) {
 //            header("Content-Type: application/xml");
 //            header("Content-Disposition: attachment; filename= " . $filepath);

@@ -1,1 +1,1 @@
-<?= gile_get_contents(Yii::getAlias('@app/xml/'). 'guest.xml');?>
+<?= file_get_contents(Yii::getAlias('@app/xml/'). 'guest.xml');?>
