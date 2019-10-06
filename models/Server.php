@@ -27,4 +27,18 @@ class Server extends Model
         $items=$model->find()->asArray()->all();
         return $items;
     }
+    public function Hello()
+    {
+        return 'привет, я работаю';
+    }
+    public static function server()
+    {
+        $server = new \SoapServer(null, array('uri' => "http://lab5:8080/web/index.php?r=soap%2Findex"));
+        $server->setObject(new Server());
+        ob_start();
+        $server->handle();
+        $result = ob_get_contents();
+        ob_end_clean();
+        return $result;
+    }
 }
