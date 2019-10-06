@@ -33,7 +33,7 @@ class Server extends Model
     }
     public static function server()
     {
-        $server = new \SoapServer(null, array('uri' => "http://lab5:8080/web/index.php?r=soap%2Findex"));
+        $server = new \SoapServer(null, array('uri' => "http://lab5:8080/web/soap/index"));
         $server->setObject(new Server());
         ob_start();
         $server->handle();
